@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "default",
+      "description": "default",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+        // for macos with system libs
+        "LLVM_ENABLE_ZSTD": false,
+        "LLVM_ENABLE_TERMINFO": false
+      }
+    }
+  ]
+}
