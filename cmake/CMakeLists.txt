@@ -45,7 +45,8 @@ add_custom_command(OUTPUT ${DEFINE_CLSPV_BUILTINS_OUTPUT_FILE}
 
 set(BAKE_FILE_INPUT_FILE ${DEFINE_CLSPV_BUILTINS_OUTPUT_FILE})
 set(BAKE_FILE_OUTPUT_FILE ${CLSPV_GENERATED_INCLUDES_DIR}/opencl_builtins_header.h)
-set(BAKE_FILE_BASE_HEADER_FILE ${CLANG_SOURCE_DIR}/lib/Headers/opencl-c-base.h)
+# set(BAKE_FILE_BASE_HEADER_FILE ${CLANG_SOURCE_DIR}/lib/Headers/opencl-c-base.h)
+set(BAKE_FILE_BASE_HEADER_FILE ${CLANG_SOURCE_DIR}/opencl-c-base.h)
 set(BAKE_FILE_DATA_VARIABLE_NAME clspv_builtins_header_data)
 set(BAKE_FILE_SIZE_VARIABLE_NAME clspv_builtins_header_size)
 set(BAKE_FILE_DATA_BASE_VARIABLE_NAME opencl_base_builtins_header_data)

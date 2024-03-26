@@ -123,21 +123,7 @@ foreach(clspv_lib clspv_core clspv_passes)
 endforeach(clspv_lib)
 
 # Dependencies of clspv_lib
-set(CLSPV_LLVM_COMPONENTS
-  LLVMAggressiveInstCombine
-  LLVMAnalysis
-  LLVMCodeGen
-  LLVMCore
-  LLVMInstCombine
-  LLVMInstrumentation
-  LLVMObjCARCOpts
-  LLVMPasses
-  LLVMScalarOpts
-  LLVMSupport
-  LLVMTransformUtils
-  LLVMVectorize
-  LLVMipo
-)
+set(CLSPV_LLVM_COMPONENTS LLVM)
 
 if(${EXTERNAL_LLVM} EQUAL 1)
   include(${CLSPV_LLVM_BINARY_DIR}/lib/cmake/llvm/LLVMConfig.cmake)
@@ -155,8 +141,8 @@ target_link_libraries(clspv_passes PRIVATE ${CLSPV_LLVM_COMPONENTS})
 add_dependencies(clspv_core clspv_baked_opencl_header clspv_builtin_library clspv64_builtin_library)
 target_link_libraries(clspv_core PUBLIC clspv_passes)
 target_link_libraries(clspv_core PRIVATE
-  LLVMIRReader
-  LLVMLinker
+  # LLVMIRReader
+  # LLVMLinker
   ${CLSPV_LLVM_COMPONENTS}
   clangAST
   clangBasic
