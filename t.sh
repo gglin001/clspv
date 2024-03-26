@@ -9,7 +9,7 @@ echo "CLANGD_VERSION: $CLANGD_VERSION"
 
 cmake \
   -DCMAKE_BUILD_TYPE=Release \
-  -DCMAKE_INSTALL_PREFIX=/opt/clspv \
+  -DCMAKE_INSTALL_PREFIX=$PWD/build/install \
   -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
   -DCMAKE_INSTALL_RPATH=ON \
   -DSPIRV_HEADERS_SOURCE_DIR=/home/spirv-headers \
@@ -23,7 +23,9 @@ cmake \
 
 cmake --build $PWD/build --target install
 
-/opt/clspv/bin/clspv --help
-/opt/clspv/bin/clspv-opt --help
-/opt/clspv/bin/clspv-reflection --help
+export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:/opt/pocl/lib:${LD_LIBRARY_PATH}"
+
+build/bin/clspv --help
+build/bin/clspv-opt --help
+build/bin/clspv-reflection --help
 
